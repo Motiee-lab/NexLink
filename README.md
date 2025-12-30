@@ -1,11 +1,25 @@
-<div align="center">
+# NexLink
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+NexLink is a fully functional social media platform clone featuring a God-mode Nexus AI integration capable of managing accounts, content, and security via natural language.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Social Feed:** Post text, images, and videos. Like, comment, and share posts.
+- **Stories:** Create stories with text overlays, stickers, and color customization. View friends' stories with reaction and reply capabilities.
+- **Messaging:** Real-time chat (private and groups) with AI integration.
+- **Nexus AI:** An intelligent assistant with administrative powers (God Mode) to manage users and content.
+- **Notifications:** Real-time updates for likes, comments, mentions, and friend requests.
+- **Profile:** Customizable profiles with avatars, bios, and timelines.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Project Information
 
-</div>
+- **Version:** 1.0.0
+- **Owner:** Mot Mot Oyamat
+
+## Technology Stack
+
+- React
+- TypeScript
+- Tailwind CSS
+- Zustand (State Management)
+- Google Gemini API (AI Intelligence)

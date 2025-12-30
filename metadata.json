@@ -1,0 +1,9 @@
+{
+  "name": "NexLink",
+  "description": "A fully functional social media platform clone featuring a God-mode Nexus AI integration capable of managing accounts, content, and security via natural language.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
