@@ -51,6 +51,7 @@ NexLink is not just another social clone; it is a fully functional, reactive soc
 *   **Administrative Power:** The AI can manage users, ban accounts, reset passwords, and create content via natural language commands.
 *   **Auto-Reply:** The AI can autonomously reply to comments and chat messages.
 *   **Content Generation:** Capable of generating posts and facilitating conversation.
+*   **Multi-Key Support:** Supports comma-separated API keys for load balancing to prevent rate limits.
 
 ## 🛠 Technology
 
@@ -71,7 +72,7 @@ To run NexLink locally or on Replit:
 
 ### Prerequisites
 *   Node.js (v18+)
-*   Google Gemini API Key
+*   Google Gemini API Key(s)
 
 ### Installation
 
@@ -81,7 +82,9 @@ To run NexLink locally or on Replit:
     ```
 
 2.  **Configure Environment**
-    Create a secret or environment variable named `API_KEY` (or `VITE_API_KEY` depending on runner) with your Google Gemini API key.
+    Create a secret or environment variable named `API_KEY` (or `VITE_API_KEY`) with your Google Gemini API key.
+    
+    > **Tip:** To avoid rate limits, you can provide multiple API keys separated by commas (e.g., `key1,key2,key3`). The app will automatically rotate through them.
 
 3.  **Run the App**
     ```bash

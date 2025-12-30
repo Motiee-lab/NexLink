@@ -1,14 +1,33 @@
 import { GoogleGenAI, FunctionDeclaration, Type } from "@google/genai";
 import { useDataStore } from "./store";
 
-const apiKey = process.env.API_KEY || ''; 
+// Support for multiple API keys separated by commas for load balancing
+const rawApiKey = process.env.API_KEY || '';
+const apiKeys = rawApiKey.split(',').map(k => k.trim()).filter(k => k.length > 0);
 
-let client: GoogleGenAI | null = null;
+const clients: GoogleGenAI[] = [];
+
+// Initialize a client pool
+if (apiKeys.length > 0) {
+    apiKeys.forEach(key => {
+        try {
+            clients.push(new GoogleGenAI({ apiKey: key }));
+        } catch (e) {
+            console.error("Failed to initialize a Gemini client:", e);
+        }
+    });
+    console.log(`[NexLink] Load Balancer: ${clients.length} API keys loaded.`);
+}
+
+let currentClientIndex = 0;
 
 export const getClient = () => {
-    if (!client && apiKey) {
-        client = new GoogleGenAI({ apiKey });
-    }
+    if (clients.length === 0) return null;
+    
+    // Round-robin selection to distribute API usage
+    const client = clients[currentClientIndex];
+    currentClientIndex = (currentClientIndex + 1) % clients.length;
+    
     return client;
 }
 
